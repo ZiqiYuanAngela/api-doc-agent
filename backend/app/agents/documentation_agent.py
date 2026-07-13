@@ -7,7 +7,7 @@ from app.agents.tools import (
     search_endpoints,
     validate_request,
 )
-from app.models.question import DocumentationAnswer
+from app.models.response import DocumentationAnswer
 
 
 documentation_agent = Agent(

@@ -15,7 +15,7 @@ from app.services.request_validator import (
 )
 
 
-@function_tool
+@function_tool(strict_mode=False)
 def list_endpoints(
     specification_id: str,
 ) -> list[dict[str, Any]]:
@@ -23,7 +23,7 @@ def list_endpoints(
     return list_endpoints_impl(specification_id)
 
 
-@function_tool
+@function_tool(strict_mode=False)
 def search_endpoints(
     specification_id: str,
     query: str,
@@ -37,7 +37,7 @@ def search_endpoints(
     )
 
 
-@function_tool
+@function_tool(strict_mode=False)
 def get_endpoint_details(
     specification_id: str,
     method: str,
@@ -51,7 +51,7 @@ def get_endpoint_details(
     )
 
 
-@function_tool
+@function_tool(strict_mode=False)
 def generate_request_example(
     specification_id: str,
     method: str,
@@ -65,7 +65,7 @@ def generate_request_example(
     )
 
 
-@function_tool
+@function_tool(strict_mode=False)
 def validate_request(
     specification_id: str,
     method: str,
