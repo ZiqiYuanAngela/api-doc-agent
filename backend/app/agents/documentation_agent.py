@@ -1,4 +1,4 @@
-from agents import Agent, Runner
+from agents import Agent, AgentOutputSchema, Runner
 
 from app.agents.tools import (
     generate_request_example,
@@ -34,7 +34,10 @@ Rules:
         generate_request_example,
         validate_request,
     ],
-    output_type=DocumentationAnswer,
+    output_type=AgentOutputSchema(
+        DocumentationAnswer,
+        strict_json_schema=False,
+    ),
 )
 
 

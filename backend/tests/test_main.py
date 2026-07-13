@@ -9,6 +9,21 @@ def test_root_returns_ok():
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
 
+def test_cors_allows_localhost_preflight():
+    client = TestClient(app)
+    response = client.options(
+        "/api/questions",
+        headers={
+            "Origin": "http://127.0.0.1:3000",
+            "Access-Control-Request-Method": "POST",
+            "Access-Control-Request-Headers": "content-type",
+        },
+    )
+
+    assert response.status_code == 200
+    assert response.headers.get("access-control-allow-origin") == "http://127.0.0.1:3000"
+
+
 def test_build_endpoint_index():
     specification = {
         "openapi": "3.0.3",
